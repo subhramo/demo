@@ -10,4 +10,22 @@ On a high level, below tasks are involved in this process.
     6. Integrated Jenkins with Github using webhook. (SCM Polling)
     7. Deigned the Pipe Jobs using Jenkins pipeline (Jenkinsfile)
     8. Integrated Jenkins with DockerHub or ECR (Security Credentials)
-    
+
+Detailed Instructions:
+
+1. Create a AWS EC2 machine using AWS console. 
+
+2. Create a project directory under /home/ec2-user/projects & copy all the program files along with Dockerfile in the directory /home/ec2-user/projects
+
+3. Install git using the below command:
+      
+       3.1 sudo yum install git -y
+
+4. Use the below set of commands to establish a connectivity between your EC2 machine & remote github repo. The below instructions are referring to my personal github account. You should change the github repo details based on your solution.
+
+        4.1 git init
+        4.2 git add .
+        4.3 git commit -m "first commit"
+        4.4 git remote add origin https://github.com/subhramo/demo.git
+        5.5 git push -u origin master
+        
