@@ -13,7 +13,7 @@ On a high level, below tasks are involved in this process.
 
 Detailed Instructions:
 
-1. Create a AWS EC2 machine using AWS console. 
+1. Create a AWS EC2 Linux machine using AWS console. Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
 
 2. Create a project directory under /home/ec2-user/projects & copy all the program files along with Dockerfile in the directory /home/ec2-user/projects
 
@@ -29,3 +29,13 @@ Detailed Instructions:
         4.4 git remote add origin https://github.com/subhramo/demo.git
         5.5 git push -u origin master
         
+5. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, etc.
+
+        5.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
+        
+6. Integrated Jenkins with Github using webhook.
+
+         6.1 In your Github account, go to Settings.
+         6.2 Select Webhooks in the left panel
+         6.3 Click on 'Add Webhook'
+         6.4 Add the entry: ‘http://<IP>:8080/github-webhook’
