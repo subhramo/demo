@@ -1,5 +1,6 @@
 node {
     def app
+    def commit_id
 
     stage('Clone repository') {
         checkout scm
@@ -7,19 +8,18 @@ node {
         commit_id = readFile('.git/commit-id').trim()
     }
 
-    stage('Build Image') {
+    stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
         app = docker.build("subhramo/demo")
     }
 
-    stage('Test Image') {
+    stage('Test image') {
         echo "Test Successful" 
         }
-    }
 
-    stage('Push Image') {
+    stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
