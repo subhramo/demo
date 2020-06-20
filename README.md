@@ -11,7 +11,7 @@ On a high level, below tasks are involved in this process.
     7. Deigned the Pipe Jobs using Jenkins pipeline (Jenkinsfile)
     8. Integrated Jenkins with DockerHub or ECR (Security Credentials)
 
-Detailed Instructions:
+## Detailed Instructions:
 
 1. Create a AWS EC2 Linux machine using AWS console. Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
 
