@@ -14,6 +14,7 @@ On a high level, below tasks are involved in this process.
     10. Create an AWS ECR or a Docker Hub Repo
     11. Integrated Jenkins with ECR or DockerHub
     12. Finally, push the image into ECR using the Jenkinsfile
+    13. Configure the ECR Repo to Scan for Vulnerabilities (Built-in)
     
 
 ## Detailed Instructions:
