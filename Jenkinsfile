@@ -20,6 +20,6 @@ node {
     }
 
     stage('Push image') {
-        sh "push.sh"
+        sh "/var/lib/jenkins/workspace/Final/push.sh"
         }
 }
