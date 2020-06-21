@@ -41,7 +41,7 @@ On a high level, below tasks are involved in this process.
         5.4 git remote add origin https://github.com/subhramo/demo.git
         5.5 git push -u origin master
         
-6. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, etc.
+6. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, Docker Pipeline etc.
 
         6.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
         
