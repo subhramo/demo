@@ -20,11 +20,8 @@ node {
     }
 
     stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-         docker.withRegistry('https://825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo', 'ecr:ap-southeast-2:subhra')
-         app.push("latest")
+        sh "\$(aws ecr get-login)"
+        sh "docker tag demo:latest 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
+        sh "docker push 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
         }
 }
