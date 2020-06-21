@@ -1,4 +1,4 @@
-FROM golang:alpine AS builder
+FROM docker.io/library/golang:alpine AS builder
 
 ENV GO111MODULE=on
 WORKDIR /app
