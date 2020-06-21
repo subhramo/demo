@@ -29,7 +29,7 @@ node {
         sh "docker push 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
         /*docker.withRegistry('https://registry.hub.docker.com', 'subhramo') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")*/
-        }
+            app.push("latest")
+        }*/
     }
 }
