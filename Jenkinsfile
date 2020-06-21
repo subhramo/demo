@@ -27,5 +27,4 @@ node {
          docker.withRegistry('https://825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo', 'ecr:ap-southeast-2:subhra')
          app.push("latest")
         }
-    }
 }
