@@ -91,5 +91,22 @@ On a high level, below tasks are involved in this process.
          8.3 Click on 'Add Webhook'
          8.4 Add the entry: ‘http://<IP>:8080/github-webhook’
          
-9. Design the CI/CD Pipeline using Jenkinsfile
+9. Design the CI/CD Pipeline using Jenkinsfile (Overall Structure)
 
+        node {
+         def app
+    
+            stage('Clone repository') {
+                checkout scm
+             }
+
+            stage('Unit Test') {
+             }
+
+            stage('Build image') {
+                  app = docker.build()
+            }
+
+            stage('Push image') {
+                }
+             }
