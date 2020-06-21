@@ -21,49 +21,60 @@ On a high level, below tasks are involved in this process.
 
 2. Create a project directory under /home/ec2-user/projects & copy all the program files along with Dockerfile in the directory /home/ec2-user/projects
 
-3. Build & Run the Dockerfile
+3. Run the Program locally & conduct Unit Test
 
-       3.1 docker build -t demo/app .
-       3.2 docker run -it -p 8000:8000 <DockerImageID>
-       3.3 Open a browser: http://<IP>:8000/version
+       3.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" . 
        
-       Sample Output:
-       
-4. Install git using the below command:
+       3.2 Run the Unit Test using: go test -v
+           
+           Sample Output if successful:
+           === RUN   TestSum
+           --- PASS: TestSum (0.00s)
+           PASS
+           ok  	golang-test	0.005s
+
+4. Build & Run the Dockerfile
+
+       4.1 docker build -t demo/app .
+       4.2 docker run -it -p 8000:8000 <DockerImageID>
+       4.3 Open a browser: http://<IP>:8000/version
       
-       4.1 sudo yum install git -y
+       
+5. Install git using the below command:
+      
+       5.1 sudo yum install git -y
 
-5. Use the below set of commands to establish a connectivity between your EC2 machine & remote github repo. The below instructions are referring to my personal github account. You should change the github repo details based on your solution.
+6. Use the below set of commands to establish a connectivity between your EC2 machine & remote github repo. The below instructions are referring to my personal github account. You should change the github repo details based on your solution.
 
-        5.1 git init
-        5.2 git add .
-        5.3 git commit -m "first commit"
-        5.4 git remote add origin https://github.com/subhramo/demo.git
-        5.5 git push -u origin master
+        6.1 git init
+        6.2 git add .
+        6.3 git commit -m "first commit"
+        6.4 git remote add origin https://github.com/subhramo/demo.git
+        6.5 git push -u origin master
         
-6. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, Docker Pipeline etc.
+7. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, Docker Pipeline etc.
 
-        6.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
+        7.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
         
-        6.2 Give 'ec2-user' necessary permission to run the Jenkins Pipeline using the below commands:
+        7.2 Give 'ec2-user' necessary permission to run the Jenkins Pipeline using the below commands:
             
-            6.2.1 vi /etc/sysconfig/jenkins
+            7.2.1 vi /etc/sysconfig/jenkins
             
-            6.2.2 Find this $JENKINS_USER and change to “ec2-user”:
+            7.2.2 Find this $JENKINS_USER and change to “ec2-user”:
                   $JENKINS_USER="ec2-user"
             
-            6.2.3 Then change the ownership of Jenkins home, webroot and logs:
+            7.2.3 Then change the ownership of Jenkins home, webroot and logs:
                   chown -R ec2-user:ec2-user /var/lib/jenkins
                   chown -R ec2-user:ec2-user /var/cache/jenkins
                   chown -R ec2-user:ec2-user /var/log/jenkins
             
-            6.2.4 Restart Jenkins and check the user has been changed:
+            7.2.4 Restart Jenkins and check the user has been changed:
                   service jenkins restart
                   ps -ef | grep jenkins
                   
-7. Integrated Jenkins with Github using webhook.
+8. Integrated Jenkins with Github using webhook.
 
-         7.1 In your Github account, go to Settings.
-         7.2 Select Webhooks in the left panel
-         7.3 Click on 'Add Webhook'
-         7.4 Add the entry: ‘http://<IP>:8080/github-webhook’
+         8.1 In your Github account, go to Settings.
+         8.2 Select Webhooks in the left panel
+         8.3 Click on 'Add Webhook'
+         8.4 Add the entry: ‘http://<IP>:8080/github-webhook’
