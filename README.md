@@ -6,13 +6,14 @@ On a high level, below tasks are involved in this process.
     2. Copy all project files including Dockerfile into a given folder
     3. Run the Program locally & conduct Unit Test
     4. Build & Run the Dockerfile to validate the application
-    5. Install git & established github integration with the code repo - subhramo/demo (Security Credentials)
-    6. Pushed all the project files into the Github repo - subhramo/demo
-    7. Installed Jenkins on AWS EC2 machine along with recommended plugins & Docker Pileline
+    5. Install git & established github integration with the code repo 
+    6. Push/Pull all the project files into the Github repo (subhramo/demo)
+    7. Install Jenkins on AWS EC2 machine along with recommended plugins along with Github Integration & Docker Pileline
     8. Integrated Jenkins with Github using webhook. (SCM Polling)
-    9. Deigned the Pipe Jobs using Jenkins pipeline (Jenkinsfile)
-    10. Integrated Jenkins with DockerHub or ECR (Security Credentials)
-    
+    9. Design CI/CD Pileline using Jenkinsfile
+    10. Create an AWS ECR or a Docker Hub Repo
+    11. Integrated Jenkins with ECR or DockerHub
+    12. Finally, push the image into ECR using the Jenkinsfile
     
 
 ## Detailed Instructions:
@@ -23,9 +24,20 @@ On a high level, below tasks are involved in this process.
 
 3. Run the Program locally & conduct Unit Test
 
-       3.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" . 
+       3.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" .
        
-       3.2 Run the Unit Test using: go test -v
+       3.2 Execute: ./Demo
+       Output: starting http server
+       Open a browser: http://<IP>:8000/version
+       
+       Output:
+       myapplication: [  {version: 1.0,
+                         lastcommitsha: d93d307161bc949160b5563772423807eceab7f1,
+                         description : pre-interview technical test
+                     } ]
+       
+       
+       3.3 Run the Unit Test using: go test -v
            
            Sample Output if successful:
            === RUN   TestSum
@@ -38,7 +50,7 @@ On a high level, below tasks are involved in this process.
        4.1 docker build -t demo/app .
        4.2 docker run -it -p 8000:8000 <DockerImageID>
        4.3 Open a browser: http://<IP>:8000/version
-      
+       4.4 Follow same steps as mentioned in 3.2
        
 5. Install git using the below command:
       
@@ -78,3 +90,6 @@ On a high level, below tasks are involved in this process.
          8.2 Select Webhooks in the left panel
          8.3 Click on 'Add Webhook'
          8.4 Add the entry: ‘http://<IP>:8080/github-webhook’
+         
+9. Design the CI/CD Pipeline using Jenkinsfile
+
