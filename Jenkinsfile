@@ -20,6 +20,6 @@ node {
     }
 
     stage('Push image') {
-        sh "/home/ec2-user/projectspush.sh"
+        sh "/home/ec2-user/projects/push.sh"
         }
 }
