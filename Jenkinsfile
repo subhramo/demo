@@ -1,7 +1,7 @@
 node {
     def app
     def commit_id
-
+    
     stage('Clone repository') {
         checkout scm
         sh "git rev-parse --short HEAD > .git/commit-id"                        
@@ -24,12 +24,8 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh "aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com"
-        sh "docker tag demo:latest 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
-        sh "docker push 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
-        /*docker.withRegistry('https://registry.hub.docker.com', 'subhramo') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }*/
+         docker.withRegistry('https://825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo', 'ecr:ap-southeast-2:subhra')
+         app.push("latest")
+        }
     }
 }
