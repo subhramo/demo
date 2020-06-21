@@ -1,6 +1,4 @@
 node {
-    def app
-    def commit_id
     
     stage('Clone repository') {
         checkout scm
