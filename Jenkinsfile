@@ -1,10 +1,3 @@
-import hudson.model.*
-import hudson.EnvVars
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import groovy.json.*
-import java.net.URL
 node {
     def app
     def commit_id
@@ -27,7 +20,6 @@ node {
     }
 
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'subhramo')
-        app.push()
+        sh "/home/ec2-user/projectspush.sh"
         }
 }
