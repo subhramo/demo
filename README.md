@@ -46,13 +46,17 @@ On a high level, below tasks are involved in this process.
         6.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
         
         6.2 Give 'ec2-user' necessary permission to run the Jenkins Pipeline using the below commands:
+            
             6.2.1 vi /etc/sysconfig/jenkins
+            
             6.2.2 Find this $JENKINS_USER and change to “ec2-user”:
                   $JENKINS_USER="ec2-user"
+            
             6.2.3 Then change the ownership of Jenkins home, webroot and logs:
                   chown -R ec2-user:ec2-user /var/lib/jenkins
                   chown -R ec2-user:ec2-user /var/cache/jenkins
                   chown -R ec2-user:ec2-user /var/log/jenkins
+            
             6.2.4 Restart Jenkins and check the user has been changed:
                   service jenkins restart
                   ps -ef | grep jenkins
