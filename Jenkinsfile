@@ -20,8 +20,7 @@ node {
     }
 
     stage('Push image') {
-        sh "aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com"
-        sh "docker tag demo:latest 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
-        sh "docker push 825030697311.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest"
+        docker.withRegistry('https://registry.hub.docker.com', 'subhramo')
+        app.push()
         }
 }
