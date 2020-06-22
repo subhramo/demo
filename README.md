@@ -70,7 +70,7 @@ Build & test your docker images locally before automating the same using Jenkins
        5.4 Follow same steps as mentioned in step 4.2
        
 # 6. Install git on AWS EC2 machine:
-Use the below command to install git on your AWS EC2 machine so that you can pull/push your code level changes into the Repo accordingly.
+Use the below command to install git on your AWS EC2 machine so that you can pull/push your code changes into the Github Repository accordingly.
 
        6.1 sudo yum install git -y
 
