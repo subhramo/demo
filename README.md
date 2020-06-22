@@ -12,9 +12,8 @@ On a high level, below tasks are involved in this process.
     8. Integrated Jenkins with Github using webhook. (SCM Polling)
     9. Design CI/CD Pileline using Jenkinsfile
     10. Create an AWS ECR or a Docker Hub Repo
-    11. Integrated Jenkins with ECR or DockerHub
-    12. Finally, push the image into ECR using the Jenkinsfile
-    13. Configure the ECR Repo to Scan for Vulnerabilities (Built-in)
+    11. Integrated Jenkins with ECR
+    12. Finally, Run the Jenkins Pipeline
     
 
 # Detailed Instructions:
@@ -93,7 +92,7 @@ Install the recommended plugins along with Github integration, Docker Pipeline e
                   ps -ef | grep jenkins
                   
 # 8. Integrated Jenkins with Github using webhook.
-Use the below instructions to integrate Jenkins to Github using Webhook which essentially ensures that when a commit has been made on a given branch, it should trigger a Jenkins job to perform some tasks.
+Use the below instructions to integrate Jenkins to Github using Webhook which essentially ensures that when a commit has been made on a given branch, it should trigger a Jenkins job (SCM Polling) to perform configured tasks.
 
          8.1 In your Github account, go to Settings.
          8.2 Select Webhooks in the left panel
@@ -120,3 +119,14 @@ The Jenkinsfile represents the skeleton structure of the CI/CD pipeline invoking
             stage('Push image') {
                 }
              }
+# 10. Create an AWS ECR or a Docker Hub Repo
+From the AWS Management console, select Amazon Elastic Container Registry (ECR) and create a new Repo. Enable the option for Scan on Push which allow the pushed images to undergo vulnerability scan & security loop holes within the image using the CVE database.
+
+# 11. Integrated Jenkins with ECR
+Install aws cli on your AWS EC2 machine and use the below commands to manully verify if you are able to push any docker images into the newly created ECR Repo. The 3 steps mentioned below are get the authentical token, tag the docker image & push the same into the ECR.
+
+        1. aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com
+        
+        2. docker tag demo:latest <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
+        
+        3. docker push <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
