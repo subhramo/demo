@@ -81,9 +81,10 @@ The below instructions are referring to my personal github account. You should c
         7.5 git push -u origin master
         
 # 8. Install Jenkins on the EC2 Linux machine  
-Install the recommended plugins along with Github integration, Docker Pipeline etc.
+Install Jenkins along with the recommended plugins like Github integration, Docker Pipeline etc.
 
-        8.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
+        8.1 Use the instructions mentioned in the below link to install Jenkins on your machine.
+   https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
         
         8.2 Give 'ec2-user' necessary permission to run the Jenkins Pipeline using the below commands:
             
