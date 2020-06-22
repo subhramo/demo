@@ -16,7 +16,7 @@ On a high level, below tasks are involved in this process.
     10. Create an AWS ECR or a Docker Hub Repo
     11. Integrated Jenkins with ECR
     12. Finally, run the Jenkins Pipeline
-    13. Additinal Notes
+    13. Additinal Considerations
     
 
 # Detailed Instructions:
@@ -137,7 +137,7 @@ Install aws cli on your AWS EC2 machine and use the below commands to manully ve
 # 12. Finally, run the Jenkins Pipeline
 Make any change in your code or Read me file & make a commit on the Git Repo. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
 
-# 13. Additional Notes
+# 13. Additional Considerations
 While this given demo is a fairly simple illustration of a CI/CD pipeline, there are some additional steps which, if included in the design, would have been a complete solution. For example, if we can include SonarQube in one of the early stages of the pipeline, it would have scanned the vulnerabilities of the static codes along with its security loop holes even before compiling the program.
 
 Similarly, with Clair Scanner, we can check the vulnerabilities of the docker images before pushing the same into the ECR. However, as part of this solution, we have already enabled ‘Scan on Push’ to check for vulnerabilities based on inbuilt CVE database.  
