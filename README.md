@@ -137,7 +137,7 @@ The Jenkinsfile represents the skeleton structure of the CI/CD pipeline invoking
 From the AWS Management console, select Amazon Elastic Container Registry (ECR) and create a new Repo. Enable the option for Scan on Push which allow the pushed images to undergo vulnerability scan & security loop holes within the image using the CVE database.
 
 # 12. Integrate Jenkins with ECR
-Install aws cli on your AWS EC2 machine and use the below commands to manully verify if you are able to push any docker images into the newly created ECR Repo. The 3 steps mentioned below are get the authentication token, tag the docker image & push the same into the ECR.
+Install aws cli on your AWS EC2 machine and use the below commands to manully verify if you are able to push any docker images into the newly created ECR Repo. The 3 steps mentioned below are to get the authentication token, tag the docker image & push the same into the ECR.
 
         1. aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com
         
@@ -146,7 +146,7 @@ Install aws cli on your AWS EC2 machine and use the below commands to manully ve
         3. docker push <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
         
 # 13. Finally, run the Jenkins Pipeline
-At the Github repo, make changes in your code or Read me file & commit the same. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
+At the Github repo, make changes in your code or Readme file & commit the same. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
 
 # 14. Additional Considerations
 While this given demo is a fairly simple illustration of a CI/CD pipeline, there are some additional steps which, if included in the design, would have been a complete solution. For example, if we can include SonarQube in one of the early stages of the pipeline, it would have scanned the vulnerabilities of the static codes along with its security loop holes even before compiling the program.
