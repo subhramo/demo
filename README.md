@@ -21,6 +21,8 @@ On a high level, below tasks are involved in this project.
     13. Finally, run the Jenkins Pipeline
     14. Additional Considerations
     
+# The Architecture
+  <img width="781" alt="Architecture" src="https://user-images.githubusercontent.com/30802518/85263165-1d7b0000-b4b2-11ea-9c78-abddea94155f.png">
 
 # Detailed Instructions:
 
