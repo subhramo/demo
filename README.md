@@ -133,5 +133,5 @@ Install aws cli on your AWS EC2 machine and use the below commands to manully ve
         
         3. docker push <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
         
-# 12. Finally, Run the Jenkins Pipeline
+# 12. Finally, run the Jenkins Pipeline
 Make any change in your code or Read me file & make a commit on the Git Repo. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
