@@ -11,13 +11,13 @@ On a high level, below tasks are involved in this project.
     3. Copy all project files including Dockerfile into a given folder
     4. Run the Program locally & conduct Unit Test
     5. Build & Run the Dockerfile to validate the application
-    6. Install git & established github integration with the code repo 
+    6. Install git & establish github integration with the code repo 
     7. Push/Pull all the project files into the Github repo
     8. Install Jenkins on AWS EC2 machine
-    9. Integrated Jenkins with Github using webhook
+    9. Integrate Jenkins with Github using webhook
     10. Design CI/CD Pileline using Jenkinsfile
     11. Create an AWS ECR or a Docker Hub Repo
-    12. Integrated Jenkins with ECR
+    12. Integrate Jenkins with AWS ECR
     13. Finally, run the Jenkins Pipeline
     14. Additional Considerations
     
