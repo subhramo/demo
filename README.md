@@ -1,23 +1,25 @@
+# What is this project about?
+
 This is a demo project to illustrate dockerization of an app designed in golang & apply CI methodolies to keep updating the code base & build activites through automation. This CI/CD process has been achieved through Jenkins pipeline. Once the new image has been built, it will be pushed into a Repo (either in Docker Hub or AWS ECR).
 
 On a high level, below tasks are involved in this process.
   
-    1. Create a AWS EC2 machine.
+    1. Create an AWS EC2 Linux machine.
     2. Copy all project files including Dockerfile into a given folder
     3. Run the Program locally & conduct Unit Test
     4. Build & Run the Dockerfile to validate the application
     5. Install git & established github integration with the code repo 
-    6. Push/Pull all the project files into the Github repo (subhramo/demo)
-    7. Install Jenkins on AWS EC2 machine along with recommended plugins along with Github Integration & Docker Pileline
-    8. Integrated Jenkins with Github using webhook. (SCM Polling)
+    6. Push/Pull all the project files into the Github repo
+    7. Install Jenkins on AWS EC2 machine
+    8. Integrated Jenkins with Github using webhook
     9. Design CI/CD Pileline using Jenkinsfile
     10. Create an AWS ECR or a Docker Hub Repo
     11. Integrated Jenkins with ECR
-    12. Finally, Run the Jenkins Pipeline
+    12. Finally, run the Jenkins Pipeline
     
 
 # Detailed Instructions:
-------------------------
+
 # 1. Create an AWS EC2 Linux machine. 
 Using AWS CLI or Management console, create an EC2 Linux machine. Configure the Security Group for port 8080 (Jenkins) and port 8000 (Golong app)
 
