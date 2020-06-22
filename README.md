@@ -17,13 +17,14 @@ On a high level, below tasks are involved in this process.
     13. Configure the ECR Repo to Scan for Vulnerabilities (Built-in)
     
 
-## Detailed Instructions:
-
-1. Create a AWS EC2 Linux machine using AWS console. Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
+# Detailed Instructions:
+------------------------
+# 1. Create an AWS EC2 Linux machine. 
+Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
 
 2. Create a project directory under /home/ec2-user/projects & copy all the program files along with Dockerfile in the directory /home/ec2-user/projects
 
-3. Run the Program locally & conduct Unit Test
+# 3. Build Program locally & conduct Unit Test
 
        3.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" .
        
@@ -46,18 +47,19 @@ On a high level, below tasks are involved in this process.
            PASS
            ok  	golang-test	0.005s
 
-4. Build & Run the Dockerfile
+# 4. Build & Run the Dockerfile
 
        4.1 docker build -t demo/app .
        4.2 docker run -it -p 8000:8000 <DockerImageID>
        4.3 Open a browser: http://<IP>:8000/version
        4.4 Follow same steps as mentioned in 3.2
        
-5. Install git using the below command:
+# 5. Install git using the below command:
       
        5.1 sudo yum install git -y
 
-6. Use the below set of commands to establish a connectivity between your EC2 machine & remote github repo. The below instructions are referring to my personal github account. You should change the github repo details based on your solution.
+# 6. Establish connectivity between AWS EC2 & Github repo. 
+The below instructions are referring to my personal github account. You should change the github repo details based on your solution.
 
         6.1 git init
         6.2 git add .
@@ -65,7 +67,8 @@ On a high level, below tasks are involved in this process.
         6.4 git remote add origin https://github.com/subhramo/demo.git
         6.5 git push -u origin master
         
-7. Install Jenkins on the EC2 Linux machine using the instructions mentioned in the link. Also install set the set of recommended plugins like Github integration, Docker Pipeline etc.
+# 7. Install Jenkins on the EC2 Linux machine  
+Install the recommended plugins along with Github integration, Docker Pipeline etc.
 
         7.1 https://github.com/miztiik/DevOps-Demos/tree/master/setup-jenkins
         
@@ -85,14 +88,14 @@ On a high level, below tasks are involved in this process.
                   service jenkins restart
                   ps -ef | grep jenkins
                   
-8. Integrated Jenkins with Github using webhook.
+# 8. Integrated Jenkins with Github using webhook.
 
          8.1 In your Github account, go to Settings.
          8.2 Select Webhooks in the left panel
          8.3 Click on 'Add Webhook'
          8.4 Add the entry: ‘http://<IP>:8080/github-webhook’
          
-9. Design the CI/CD Pipeline using Jenkinsfile (Overall Structure)
+# 9. Design the CI/CD Pipeline using Jenkinsfile
 
         node {
          def app
