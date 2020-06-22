@@ -7,7 +7,7 @@ The Go Application is an extension of the original App used in our first Test Ca
 On a high level, below tasks are involved in this project.
   
     1. Create an AWS EC2 Linux machine
-    2. Install go 
+    2. Install Go & Docker 
     3. Copy all project files including Dockerfile into a given folder
     4. Run the Program locally & conduct Unit Test
     5. Build & Run the Dockerfile to validate the application
@@ -29,9 +29,10 @@ On a high level, below tasks are involved in this project.
 # 1. Create an AWS EC2 Linux machine. 
 Using AWS CLI or Management console, create an EC2 Linux machine. Configure the Security Group for port 8080 (Jenkins) and port 8000 (Golong app)
 
-# 2. Install go
+# 2. Install Go & Docker
 
       2.1 sudo yum install go -y
+      2.2 sudo yum install docker -y
 
 # 3. Create a project directory
 Create a directory under /home/ec2-user/projects & copy all the program files along with Dockerfile & Jenkinsfile in it. 
