@@ -20,7 +20,7 @@ On a high level, below tasks are involved in this process.
 # Detailed Instructions:
 ------------------------
 # 1. Create an AWS EC2 Linux machine. 
-Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
+Using AWS CLI or Management console, create an EC2 Linux machine. Configure the Security Group for port 8080 (Jenkins) and port 8000 (Golong app)
 
 # 2. Create a project directory
 Create a directory under /home/ec2-user/projects & copy all the program files along with Dockerfile & Jenkinsfile in it. 
@@ -50,14 +50,16 @@ Using the below commands to compile & execute the program, validate the outout &
            ok  	golang-test	0.005s
 
 # 4. Build & Run the Dockerfile
+Build & test your docker images locally before automating the same using Jenkins pipeline in the subsequent steps.
 
        4.1 docker build -t demo/app .
        4.2 docker run -it -p 8000:8000 <DockerImageID>
        4.3 Open a browser: http://<IP>:8000/version
-       4.4 Follow same steps as mentioned in 3.2
+       4.4 Follow same steps as mentioned in step 3.2
        
-# 5. Install git using the below command:
-      
+# 5. Install git on AWS EC2 machine:
+Use the below command to install git on your AWS EC2 machine so that you can pull/push your code level changes into the Repo accordingly.
+
        5.1 sudo yum install git -y
 
 # 6. Establish connectivity between AWS EC2 & Github repo. 
@@ -91,6 +93,7 @@ Install the recommended plugins along with Github integration, Docker Pipeline e
                   ps -ef | grep jenkins
                   
 # 8. Integrated Jenkins with Github using webhook.
+Use the below instructions to integrate Jenkins to Github using Webhook which essentially ensures that when a commit has been made on a given branch, it should trigger a Jenkins job to perform some tasks.
 
          8.1 In your Github account, go to Settings.
          8.2 Select Webhooks in the left panel
@@ -98,6 +101,7 @@ Install the recommended plugins along with Github integration, Docker Pipeline e
          8.4 Add the entry: ‘http://<IP>:8080/github-webhook’
          
 # 9. Design the CI/CD Pipeline using Jenkinsfile
+The Jenkinsfile represents the skeleton structure of the CI/CD pipeline invoking the appropriate jobs in each stage.
 
         node {
          def app
