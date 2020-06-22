@@ -22,17 +22,19 @@ On a high level, below tasks are involved in this process.
 # 1. Create an AWS EC2 Linux machine. 
 Ensure to configure the security group for port 8080 (Jenkins) and port 8000 (Golong app)
 
-2. Create a project directory under /home/ec2-user/projects & copy all the program files along with Dockerfile in the directory /home/ec2-user/projects
+# 2. Create a project directory
+Create a directory under /home/ec2-user/projects & copy all the program files along with Dockerfile & Jenkinsfile in it. 
 
 # 3. Build Program locally & conduct Unit Test
+Using the below commands to compile & execute the program, validate the outout & conduct Unit Test.
 
        3.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" .
        
        3.2 Execute: ./Demo
-       Output: starting http server
-       Open a browser: http://<IP>:8000/version
        
-       Output:
+       * Output: starting http server
+       * Open a browser: http://<IP>:8000/version
+       * Output:
        myapplication: [  {version: 1.0,
                          lastcommitsha: d93d307161bc949160b5563772423807eceab7f1,
                          description : pre-interview technical test
