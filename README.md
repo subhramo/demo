@@ -2,9 +2,12 @@
 
 This is a demo project to illustrate dockerization of an app designed in golang & apply CI/CD methodologies to keep updating the code base, build & push activites through automation. This CI/CD process has been achieved through Jenkins pipeline. Once the new image has been built, it will be pushed into a Repo (either in Docker Hub or AWS ECR).
 
-On a high level, below tasks are involved in this process.
+The Go Application is an extension of the original Go App used in the 1st Test Case -> https://github.com/xUnholy/technical-tests. It exposes API endpoints like /version, /go, /helloworld etc. & show outputs based on the configurations.
+
+On a high level, below tasks are involved in this project.
   
     1. Create an AWS EC2 Linux machine.
+    2. Install go 
     2. Copy all project files including Dockerfile into a given folder
     3. Run the Program locally & conduct Unit Test
     4. Build & Run the Dockerfile to validate the application
