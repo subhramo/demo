@@ -143,7 +143,7 @@ Install aws cli on your AWS EC2 machine and use the below commands to manully ve
         3. docker push <AWS Account ID>.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
         
 # 13. Finally, run the Jenkins Pipeline
-Make any change in your code or Read me file & make a commit on the Git Repo. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
+At the Github repo, make changes in your code or Read me file & commit the same. It should trigger the Jenkins pipeline, build the docker image & push the same into the ECR.
 
 # 14. Additional Considerations
 While this given demo is a fairly simple illustration of a CI/CD pipeline, there are some additional steps which, if included in the design, would have been a complete solution. For example, if we can include SonarQube in one of the early stages of the pipeline, it would have scanned the vulnerabilities of the static codes along with its security loop holes even before compiling the program.
