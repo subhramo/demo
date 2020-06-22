@@ -16,7 +16,7 @@ On a high level, below tasks are involved in this process.
     10. Create an AWS ECR or a Docker Hub Repo
     11. Integrated Jenkins with ECR
     12. Finally, run the Jenkins Pipeline
-    13. Additinal Considerations
+    13. Additional Considerations
     
 
 # Detailed Instructions:
