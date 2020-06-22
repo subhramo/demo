@@ -6,7 +6,7 @@ The Go Application is an extension of the original App used in our first Test Ca
 
 On a high level, below tasks are involved in this project.
   
-    1. Create an AWS EC2 Linux machine.
+    1. Create an AWS EC2 Linux machine
     2. Install go 
     3. Copy all project files including Dockerfile into a given folder
     4. Run the Program locally & conduct Unit Test
