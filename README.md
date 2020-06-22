@@ -1,6 +1,6 @@
 # What is this Project about?
 
-This is a demo project to illustrate dockerization of an app designed in golang & apply CI/CD methodologies to keep updating the code base, build & push activites through automation. This CI/CD process has been achieved through Jenkins pipeline. Once the new image has been built, it will be pushed into a Repo (either in Docker Hub or AWS ECR).
+This is a demo project to illustrate dockerization of an app designed in golang & apply CI/CD methodologies to keep updating the code base, build & push container images through automation. This CI/CD process has been achieved through Jenkins pipeline. Once the new image has been built, it will be pushed into a Repo (either in Docker Hub or AWS ECR).
 
 The Go Application is an extension of the original App used in our first Test Case: https://github.com/xUnholy/technical-tests. It exposes API endpoints like /version, /go, /helloworld etc. & show outputs based on the configurations.
 
@@ -38,7 +38,7 @@ Using AWS CLI or Management console, create an EC2 Linux machine. Configure the 
 Create a directory under /home/ec2-user/projects & copy all the program files along with Dockerfile & Jenkinsfile in it. 
 
 # 4. Build Program locally & conduct Unit Test
-Using the below commands to compile & execute the program, validate the outout & conduct Unit Test.
+Use the below commands to compile & execute the program. Then, validate the output of the microservice & conduct an Unit Test.
 
        4.1 go build -o Demo -ldflags "-X main.gitCommit=$(git rev-list -1 HEAD)" .
        
