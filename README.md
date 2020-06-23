@@ -152,3 +152,6 @@ At the Github repo, make changes in your code or Readme file & commit the same. 
 While this given demo is a fairly simple illustration of a CI/CD pipeline, there are some additional steps which, if included in the design, would have been a complete solution. For example, if we can include SonarQube in one of the early stages of the pipeline, it would have scanned the vulnerabilities of the static codes along with its security loop holes even before compiling the program.
 
 Similarly, with Clair Scanner, we can check the vulnerabilities of the docker images before pushing the same into the ECR. However, as part of this solution, we have already enabled ‘Scan on Push’ to check for vulnerabilities based on inbuilt CVE database in the ECR Repository.
+
+# Refined Architecture
+<img width="970" alt="Refined Architecture" src="https://user-images.githubusercontent.com/30802518/85362511-f54ada00-b561-11ea-8693-40f96b9d50f8.png">
