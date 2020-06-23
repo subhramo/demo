@@ -154,4 +154,4 @@ While this given demo is a fairly simple illustration of a CI/CD pipeline, there
 Similarly, with Clair Scanner, we can check the vulnerabilities of the docker images before pushing the same into the ECR. However, as part of this solution, we have already enabled ‘Scan on Push’ to check for vulnerabilities based on inbuilt CVE database in the ECR Repository.
 
 # Refined Architecture
-<img width="970" alt="Refined Architecture" src="https://user-images.githubusercontent.com/30802518/85362511-f54ada00-b561-11ea-8693-40f96b9d50f8.png">
+<img width="1001" alt="RF1" src="https://user-images.githubusercontent.com/30802518/85365955-b0c33c80-b569-11ea-9ed3-50ce4765de93.png">
