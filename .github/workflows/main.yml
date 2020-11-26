@@ -34,3 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+    
+      # Runs a single command using the runners shell
+      - name: Dump data into environment variable
+        run: |
+          curl https://httpbin.org/json >> $GITHUB_ENV
+          echo $GITHUB_ENV
