@@ -41,5 +41,6 @@ jobs:
           echo "action_state=whoami" >> $GITHUB_ENV
        
       - name: Run action state
-        run: $action_state
+        run: 
+         echo $action_state
          echo "::add-mask::$action_state"
