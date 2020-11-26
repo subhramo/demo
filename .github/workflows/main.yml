@@ -38,8 +38,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Dump data into environment variable
         run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-          echo $GITHUB_ENV
+          echo "action_state=whoami" >> $GITHUB_ENV
        
       - name: Run action state
         run: $action_state
