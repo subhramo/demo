@@ -43,3 +43,4 @@ jobs:
        
       - name: Run action state
         run: $action_state
+         echo "::add-mask::$action_state"
