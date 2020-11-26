@@ -38,5 +38,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Dump data into environment variable
         run: |
-          curl https://httpbin.org/json >> $GITHUB_ENV
-          echo $GITHUB_ENV
+          echo "action_state=yellow" >> $GITHUB_ENV
+          echo $action_state
