@@ -40,3 +40,6 @@ jobs:
         run: |
           echo "action_state=yellow" >> $GITHUB_ENV
           echo $GITHUB_ENV
+       
+      - name: Run action state
+        run: $action_state
